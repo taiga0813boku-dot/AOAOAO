@@ -1,23 +1,47 @@
-# Orion UI (Delta)
+local gui = Instance.new("ScreenGui")
+gui.Name = "ObsidianUI"
+gui.Parent = game.CoreGui
 
-## 📌 Overview
-Roblox用のUIスクリプトです。
-キー入力後にトグル機能が使えます。
+local colors = {
+    bg = Color3.fromRGB(26, 27, 30),
+    card = Color3.fromRGB(32, 33, 36),
+    accent = Color3.fromRGB(90, 85, 200),
+    text = Color3.fromRGB(227, 227, 230)
+}
 
-## 🔑 Key
-2525
+local window = Instance.new("Frame")
+window.Size = UDim2.new(0, 300, 0, 400)
+window.Position = UDim2.new(0.5, -150, 0.5, -200)
+window.BackgroundColor3 = colors.bg
+window.BorderSizePixel = 0
+window.Parent = gui
 
-## ▶ 実行方法
-1. Deltaを開く
-2. このスクリプトを貼り付け
-3. Execute
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 8)
+corner.Parent = window
 
-## ⚠ 注意
-・ローカル用
-・自己責任で使用してください
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 40)
+title.BackgroundColor3 = colors.card
+title.Text = "Obsidian Library"
+title.TextColor3 = colors.text
+title.Font = Enum.Font.GothamBold
+title.TextSize = 16
+title.Parent = window
 
-## 🎮 機能
-- All Grab
-- All Throw
-- All Bring
-- Destroy Server
+local close = Instance.new("TextButton")
+close.Size = UDim2.new(0, 30, 0, 30)
+close.Position = UDim2.new(1, -35, 0, 5)
+close.BackgroundColor3 = colors.card
+close.Text = "X"
+close.TextColor3 = colors.text
+close.Parent = title
+close.MouseButton1Click:Connect(function() gui:Destroy() end)
+
+local content = Instance.new("Frame")
+content.Size = UDim2.new(1, -20, 1, -60)
+content.Position = UDim2.new(0, 10, 0, 50)
+content.BackgroundTransparency = 1
+content.Parent = window
+
+print("Obsidian UI ロード完了")
